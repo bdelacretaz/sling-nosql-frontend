@@ -1,0 +1,26 @@
+#sling:
+#    image: sling-nosql:latest
+#    ports:
+#        - "8080:8080"
+#    links:
+#        - mongo
+#       - couchbase
+#    volumes:
+#        - src/main/resources:/srv/images
+#        - docker/sling:/opt/sling/sling
+mongo:
+    image: mongo:3.0
+    ports: 
+        - "27017:27017"
+
+couchbase:
+    image: couchbase:community-4.0.0
+    ports:
+        - "8091:8091"
+        - "8092:8092"
+        - "8093:8093" # query port
+        - "11210:11210"
+redis:
+    image: redis
+    ports:
+        - "6379:6379"
