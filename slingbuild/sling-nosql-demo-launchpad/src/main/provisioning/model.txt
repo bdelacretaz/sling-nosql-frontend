@@ -1,0 +1,50 @@
+# Sling provisioning model for the NoSQL demo launchpad
+[feature name=sling]
+[artifacts]
+  org.apache.sling/org.apache.sling.launchpad/8/slingstart
+  
+  # Shared dependencies
+  org.apache.sling/org.apache.sling.nosql.generic/1.0.0
+  org.apache.commons/commons-lang3/3.3.2
+  
+  # MongoDB
+  org.mongodb/mongo-java-driver/3.0.4
+  org.apache.sling/org.apache.sling.nosql.mongodb-resourceprovider/1.0.0
+  
+  # Couchbase
+  org.apache.sling/org.apache.sling.nosql.couchbase-client/1.0.0
+  org.apache.sling/org.apache.sling.nosql.couchbase-resourceprovider/1.0.1-SNAPSHOT
+  io.wcm.osgi.wrapper/io.wcm.osgi.wrapper.rxjava/1.0.11-0000
+  
+  # Redis
+  redis.clients/jedis/2.7.3
+  org.apache.commons/commons-pool2/2.4.2
+  org.apache.sling/org.apache.sling.redis/0.0.1-SNAPSHOT
+
+[configurations]
+
+  # TODO do we need this?
+  #  org.apache.sling.fsprovider.internal.FsResourceProvider-default
+  #    provider.roots="/content/blog/images"
+  #    provider.file="../src/main/resources"
+  
+  # statically configured MongoDB mount
+  org.apache.sling.nosql.mongodb.resourceprovider.MongoDBNoSqlResourceProviderFactory.factory.config-default
+    provider.roots=["/nosql/static-mounts/mongo"]
+    connectionString="localhost:27017"
+    database="sling"
+    collection="resources"
+
+  # statically configured Couchbase mount
+  org.apache.sling.nosql.couchbase.resourceprovider.CouchbaseNoSqlResourceProviderFactory.factory.config-default
+    provider.roots=["/nosql/static-mounts/couchbase"]
+  org.apache.sling.nosql.couchbase.client.CouchbaseClient.factory.config-default
+    clientId="sling-resourceprovider-couchbase"
+    couchbaseHosts="localhost:8091"
+    bucketName="default"
+    enabled=B"true"
+	
+  # statically configured Redis mount
+  org.apache.sling.redis.impl.RedisStatsResourceProviderFactory-default
+    provider.roots=["/nosql/static-mounts/redis"]
+    redis.host="localhost"
