@@ -13,6 +13,13 @@ mongo:
     ports: 
         - "27017:27017"
 
+mongo2:
+    image: mongo:3.0
+    ports:
+        - "27018:27017"
+    labels:
+        ch.x42.slingdb.type : mongo
+
 couchbase:
     image: couchbase:community-4.0.0
     ports:
