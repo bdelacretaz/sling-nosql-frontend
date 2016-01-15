@@ -31,7 +31,7 @@
   # statically configured MongoDB mount
   org.apache.sling.nosql.mongodb.resourceprovider.MongoDBNoSqlResourceProviderFactory.factory.config-default
     provider.roots=["/nosql/static-mounts/mongo"]
-    connectionString="localhost:27017"
+    connectionString="mongo:27017"
     database="sling"
     collection="resources"
 
@@ -40,11 +40,11 @@
     provider.roots=["/nosql/static-mounts/couchbase"]
   org.apache.sling.nosql.couchbase.client.CouchbaseClient.factory.config-default
     clientId="sling-resourceprovider-couchbase"
-    couchbaseHosts="localhost:8091"
+    couchbaseHosts="couchbase:8091"
     bucketName="default"
     enabled=B"true"
 	
   # statically configured Redis mount
   org.apache.sling.redis.impl.RedisStatsResourceProviderFactory-default
     provider.roots=["/nosql/static-mounts/redis"]
-    redis.host="localhost"
+    redis.host="redis"

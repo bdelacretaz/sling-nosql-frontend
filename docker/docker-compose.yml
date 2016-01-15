@@ -1,3 +1,5 @@
+# Dockerfile for the Sling NoSQL frontend demo
+# Meant to be run with --x-networking
 sling:
     # This image must be built first, from the
     # "slingbuild" folder 
@@ -8,6 +10,11 @@ sling:
 #    volumes:
 #        - src/main/resources:/srv/images
 #        - docker/sling:/opt/sling/sling
+
+dbwatcher:
+    build: dbwatcher
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
 
 mongo:
     image: mongo:3.0
@@ -29,3 +36,10 @@ redis:
     container_name: redis
     ports:
         - "6379:6379"
+
+mongo2:
+    image: mongo:3.0
+    ports:
+        - "27018:27017"
+    labels:
+        ch.x42.slingdb.type : mongo

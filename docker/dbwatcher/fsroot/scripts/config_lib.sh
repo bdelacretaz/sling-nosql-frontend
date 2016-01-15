@@ -1,7 +1,7 @@
-#!/bin/sh -e
+#!/bin/bash -e
 # Library of common functions to create Sling configs via HTTP
 
-SLING=http://localhost:8080
+SLING=http://sling:8080
 MOUNT_PATH=/nosql/mount
 
 function POST {

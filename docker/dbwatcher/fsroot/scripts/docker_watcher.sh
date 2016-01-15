@@ -4,7 +4,7 @@
 
 MYFOLDER=$(dirname $0)
 
-docker events -f event=start | grep --line-buffered start | sed -l 's/[^ ]*//' | sed -l 's/:.*//' | while read ID
+docker events -f event=start | grep --line-buffered start | sed -u 's/[^ ]*//' | sed -u 's/:.*//' | while read ID
 do 
 	DBTYPE=$(docker ps -f=id=$ID --format '{{.Label "ch.x42.slingdb.type"}}')
 	HOST=$(docker inspect $ID | grep 'Hostname":' | cut -d'"' -f4)

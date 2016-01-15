@@ -1,4 +1,4 @@
-#!/bin/sh -e
+#!/bin/bash -e
 # Create Sling config for a MongoDB mount
 
 MYFOLDER=$(dirname $0)
