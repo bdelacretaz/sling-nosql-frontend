@@ -2,7 +2,6 @@
 # Library of common functions to create Sling configs via HTTP
 
 SLING=http://sling:8080
-MOUNT_PATH=/nosql/mount
 
 function POST {
     http -v --ignore-stdin --auth=admin:admin -f POST $SLING"$@"

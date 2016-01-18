@@ -6,7 +6,7 @@ MYFOLDER=$(dirname $0)
 
 HOST=$1
 PORT=$2
-MOUNT_PATH=$MOUNT_PATH/$3
+MOUNT_PATH=$3
 CS=$HOST:$PORT
 echo Creating Sling config to mount Mongo DB $CS at $MOUNT_PATH
 	
