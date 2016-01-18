@@ -11,11 +11,6 @@
   org.mongodb/mongo-java-driver/3.0.4
   org.apache.sling/org.apache.sling.nosql.mongodb-resourceprovider/1.0.0
   
-  # Couchbase
-  org.apache.sling/org.apache.sling.nosql.couchbase-client/1.0.0
-  org.apache.sling/org.apache.sling.nosql.couchbase-resourceprovider/1.0.1-SNAPSHOT
-  io.wcm.osgi.wrapper/io.wcm.osgi.wrapper.rxjava/1.0.11-0000
-  
   # Redis
   redis.clients/jedis/2.7.3
   org.apache.commons/commons-pool2/2.4.2
@@ -35,15 +30,6 @@
     database="sling"
     collection="resources"
 
-  # statically configured Couchbase mount
-  org.apache.sling.nosql.couchbase.resourceprovider.CouchbaseNoSqlResourceProviderFactory.factory.config-default
-    provider.roots=["/nosql/static-mounts/couchbase"]
-  org.apache.sling.nosql.couchbase.client.CouchbaseClient.factory.config-default
-    clientId="sling-resourceprovider-couchbase"
-    couchbaseHosts="couchbase:8091"
-    bucketName="default"
-    enabled=B"true"
-	
   # statically configured Redis mount
   org.apache.sling.redis.impl.RedisStatsResourceProviderFactory-default
     provider.roots=["/nosql/static-mounts/redis"]
