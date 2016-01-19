@@ -7,6 +7,7 @@ sling:
     container_name: sling
     ports:
         - "8080:8080"
+        - "30303:30303"
 # Volumes could be used to make Sling state persistent
 #    volumes:
 #        - src/main/resources:/srv/images

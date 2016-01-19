@@ -1,0 +1,4 @@
+{
+    "jcr:primaryType" : "nt:unstructured",
+    "jcr:description" : "Mount point for dynamically configured noSQL resource providers"
+}

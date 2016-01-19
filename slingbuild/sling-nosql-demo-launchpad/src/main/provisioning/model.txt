@@ -2,11 +2,17 @@
 [feature name=sling]
 [artifacts]
   org.apache.sling/org.apache.sling.launchpad/8/slingstart
+
+  # override post servlet do avoid 404 on mounting roots
+  org.apache.sling/org.apache.sling.servlets.post/2.3.9-SNAPSHOT
   
   # Shared dependencies
   org.apache.sling/org.apache.sling.nosql.generic/1.0.0
   org.apache.commons/commons-lang3/3.3.2
   
+  # Demo support bundle
+  ch.x42/sling-nosql-demo-support/0.0.1-SNAPSHOT
+  	  
   # MongoDB
   org.mongodb/mongo-java-driver/3.0.4
   org.apache.sling/org.apache.sling.nosql.mongodb-resourceprovider/1.0.0
