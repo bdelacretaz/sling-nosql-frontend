@@ -28,7 +28,7 @@ mongo:
         - "27017:27017"
 
 redis:
-    image: redis
+    image: redis:3.0.6
     container_name: redis
     ports:
         - "6379:6379"
