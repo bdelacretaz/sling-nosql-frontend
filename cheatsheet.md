@@ -33,6 +33,10 @@ And later
 ## Mongo client
 	docker run --net docker -it mongo:3.0 bash
 	
+	mongo mongo.docker
+	
+or check the mongo server IP at
+
 	http://dockerhost:8080/system/console/status-Configurations
 
 	db.resources.insert({ "_id" : "/nosql/static-mounts/mongo/demoA", "data" : { "text" : "mongo static here" }, "parentPath" : "/nosql/static-mounts/mongo" })
