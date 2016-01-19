@@ -1,6 +1,6 @@
 # Dockerfile for our Sling demo launchpad runnable jar
 # Build with 
-#	docker build -t sling-nosql-demo
+#	docker build -t sling-nosql-demo .
 # That jar must be built first, using Maven
 FROM java:8
 COPY sling-nosql-demo-launchpad/target/sling-nosql-demo-launchpad-0.0.1-SNAPSHOT.jar /opt/sling/demo-launchpad.jar
