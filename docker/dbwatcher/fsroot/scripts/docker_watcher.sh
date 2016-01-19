@@ -30,7 +30,7 @@ do
 	then
 		echo "Container $ID started, no DB type label provided, ignored"
 	else
-		CMD="create_${DBTYPE}_config.sh $HOST $PORT /nosql/mount/$NAME"
+		CMD="create_${DBTYPE}_config.sh $HOST $PORT /nosql/$NAME"
 		echo "Container $ID started, running $CMD"
 		${MYFOLDER}/${CMD} < /dev/null
 	fi

@@ -24,19 +24,14 @@
 
 [configurations]
 
-  # TODO do we need this?
-  #  org.apache.sling.fsprovider.internal.FsResourceProvider-default
-  #    provider.roots="/content/blog/images"
-  #    provider.file="../src/main/resources"
-  
   # statically configured MongoDB mount
   org.apache.sling.nosql.mongodb.resourceprovider.MongoDBNoSqlResourceProviderFactory.factory.config-default
-    provider.roots=["/nosql/static-mounts/mongo"]
+    provider.roots=["/nosql/mongo"]
     connectionString="mongo:27017"
     database="sling"
     collection="resources"
 
   # statically configured Redis mount
   org.apache.sling.redis.impl.RedisStatsResourceProviderFactory-default
-    provider.roots=["/nosql/static-mounts/redis"]
+    provider.roots=["/nosql/redis"]
     redis.host="redis"
