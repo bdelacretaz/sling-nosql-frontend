@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
+import org.apache.felix.scr.annotations.ConfigurationPolicy;
 import org.apache.felix.scr.annotations.Properties;
 import org.apache.felix.scr.annotations.Property;
 import org.apache.felix.scr.annotations.Service;
@@ -24,7 +25,11 @@ import org.apache.sling.api.resource.ValueMap;
  *  Use /planets.tidy.-1.json to GET the whole thing.
  *  Adapted from the Sling launchpad/test-services module. 
  */
-@Component(metatype=true)
+@Component(
+    metatype=true,
+    configurationFactory = true,
+    policy = ConfigurationPolicy.REQUIRE
+)
 @Service
 @Properties({
     @Property(name=ResourceProvider.ROOTS, value=PlanetsResourceProvider.DEFAULT_ROOT)
@@ -36,7 +41,7 @@ public class PlanetsResourceProvider implements ResourceProvider {
     private final Map<String, ValueMap> PLANETS = new HashMap<String, ValueMap>();
     
     /** Root mount point is configurable */
-    public static final String DEFAULT_ROOT = "planets";
+    public static final String DEFAULT_ROOT = "nosql/planets";
     public String rootPath;
     private String absRootPath;
     
@@ -46,19 +51,26 @@ public class PlanetsResourceProvider implements ResourceProvider {
         if(rootPath == null && rootPath.trim().length() == 0) {
             throw new IllegalStateException("Missing ROOT config");
         }
+        if(rootPath.startsWith("/")) {
+            rootPath = rootPath.substring(1);
+        }
         absRootPath = "/" + rootPath;
         
         /* Planet data from http://nineplanets.org/data.html
          * (not that we care much about accuracy anyway ;-) 
          */
-        definePlanet("Mercury", 57910);
         definePlanet("Venus", 108200);
-        definePlanet("Earth", 149600).put("comment", "Resources can have different sets of properties");
+        definePlanet("Earth", 149600)
+            .put("source", "This is provided by the " + getClass().getSimpleName() + " at " + absRootPath);
         definePlanet("Mars", 227940);
+        
+        /* omit a few planets for our demo
+        definePlanet("Mercury", 57910);
         definePlanet("Jupiter", 4332);
         definePlanet("Saturn", 10759);
         definePlanet("Uranus", 30685);
         definePlanet("Neptune", 60190);
+        */
 
         // Add the moon to test a two-level hierarchy
         final String moonPath = absRootPath + "/earth/moon";
