@@ -1,0 +1,4 @@
+# Create redis content for Sling
+H=$1
+ID=$(date +%s)
+redis-cli -h $H ZADD sling:stats $ID .nosql.static-mounts.redis.t_${ID}

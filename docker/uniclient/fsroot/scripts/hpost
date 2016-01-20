@@ -1,0 +1,5 @@
+# Create content via HTTP
+H=sling
+ID=$(date +%s)
+P=$1
+curl -u admin:admin -Ftext="test at $(date)" http://sling:8080/nosql/$P/t-$ID

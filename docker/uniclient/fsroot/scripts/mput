@@ -1,0 +1,10 @@
+# Create mongo content for Sling
+H=$1
+P=$2
+ID=$(date +%s)
+
+mongo $H << EOF
+use sling
+db.resources.insert({ "_id" : "/nosql/$P/t-$ID", "data" : { "text" : "$H at $(date)" }, "parentPath" : "/nosql/$P" })
+db.resources.find()
+EOF
