@@ -1,6 +1,6 @@
 # sling-nosql-frontend
 
-Supporting code for my Snowcamp 2016 talk, http://sched.co/5nB9
+Supporting code for my Snowcamp 2016 talk, http://sched.co/5nB9 - slides at http://www.slideshare.net/bdelacretaz/restful-osgi-middleware-for-nosql-databases-with-docker
 
 This is a demo using Apache Sling as a front-end for NoSQL databases running in Docker, with dynamic DB discovery.
 
