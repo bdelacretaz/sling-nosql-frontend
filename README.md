@@ -1,13 +1,11 @@
 # sling-nosql-frontend
-Demo using Apache Sling as a front-end for NoSQL databases running in Docker, with dynamic DB discovery
 
-TODO don't forget to credit Robert Munteanu!!
+Supporting code for my Snowcamp 2016 talk, http://sched.co/5nB9
 
-TODO check that all Maven artifacts are available, and warn about SNAPSHOTs
+This is a demo using Apache Sling as a front-end for NoSQL databases running in Docker, with dynamic DB discovery.
 
-## Prerequisites
-Docker and docker-compose - use our .yml to check
+I need to complete these instructions to allow you to run this demo and find your way around it - feel free to bug me if I don't.
 
-redis-cli?
+For now, you need to build the Sling modules with `mvn clean install` in the `slingbuild` folder, and also build the `Dockerfile` found there as explained in its comments.
 
-httpie? (only in the dbwatch container?)
+Then, follow the [cheatsheet](cheatsheet.md) to run the demo.
