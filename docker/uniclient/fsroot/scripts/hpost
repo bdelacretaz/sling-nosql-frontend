@@ -1,5 +1,8 @@
 # Create content via HTTP
-H=sling
+HOST=sling
+PORT=8080
 ID=$(date +%s)
 P=$1
-curl -u admin:admin -Ftext="test at $(date)" http://sling:8080/nosql/$P/t-$ID
+URL=http://$HOST:$PORT/nosql/$P/t-$ID
+echo "POST to $URL"
+curl -u admin:admin -Ftext="test at $(date)" $URL && echo && echo "POST to $URL successful"

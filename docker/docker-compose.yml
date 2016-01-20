@@ -34,6 +34,11 @@ redis:
     ports:
         - "6379:6379"
 
+# This is meant to be started with docker -it
+# to use the content creation scripts interactively
+uniclient:
+    build: uniclient
+
 mongo2:
     image: mongo:3.0
     container_name : mongo_deux
